@@ -1,0 +1,120 @@
+<table>
+  <tr>
+    <td>
+      <h1 class="titulo">{{ titulo }}</h1>
+    </td>
+    <td>
+      <button mat-icon-button (click)="onClickRetornar()" class="linkRetornar">
+        <mat-icon>keyboard_backspace</mat-icon> Retornar
+      </button>
+    </td>
+  </tr>
+</table>
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="nome" type="text" maxlength="256" required>
+      </mat-form-field>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>CPF</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="cpf" maxlength="11" type="number" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>RG</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="rg" type="number" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>CNS</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="cns" type="number" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Data de Nascimento</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Sexo</mat-label>
+              <select matNativeControl required formControlName="sexo">
+                <option value="1">Masculino</option>
+                <option value="2">Feminino</option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-form-field appearance="fill">
+        <mat-label>Mâe</mat-label>
+        <input matInput placeholder="nome da mãe" formControlName="nomeMae" type="text" maxlength="256">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Logradouro</mat-label>
+        <input matInput placeholder="Logradouro" formControlName="endereco" type="text" maxlength="512" required>
+      </mat-form-field>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Bairro</mat-label>
+              <input matInput placeholder="Bairro" formControlName="bairro" type="text" maxlength="256" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Cidade</mat-label>
+              <input matInput placeholder="Cidade" formControlName="cidade" type="text" maxlength="256" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>CEP</mat-label>
+              <input matInput placeholder="CEP" formControlName="cep" type="number" maxlength="8" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>UF</mat-label>
+              <input matInput placeholder="Unidade Federativa" formControlName="estado" type="text" maxlength="2"
+                required>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <table>
+      <tr>
+        <td>
+          <section>
+            <button mat-raised-button color="primary" class="right btn-save" (click)="salvar()">
+              <mat-icon>save</mat-icon> Salvar
+            </button>
+          </section>
+          <mat-divider></mat-divider>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <ng-container *ngIf="id !== null && id !== undefined">
+            <app-telefone [pacienteId]="id"></app-telefone>
+          </ng-container>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

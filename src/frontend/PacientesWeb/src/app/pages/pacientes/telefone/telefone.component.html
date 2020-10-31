@@ -1,0 +1,78 @@
+<mat-card>
+  <h4><b>Telefones</b></h4>
+    <mat-divider></mat-divider>
+    <form [formGroup]="form">
+      <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>DDD</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="ddd" type="number" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Número</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="numero" type="number" required>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Tipo</mat-label>
+              <select matNativeControl required formControlName="tipo">
+                <option value="1">Celular</option>
+                <option value="2">Residencial</option>
+                <option value="3">Comercial</option>
+              </select>
+            </mat-form-field>
+          </td>
+          <td>
+            <button mat-mini-fab (click)="salvarTelefone()" color="primary" class="btn-save">
+              <mat-icon>add</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <mat-divider></mat-divider>
+  <section *ngIf="dataSource" >
+    <div>
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" color="primary">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="ddd">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DDD </th>
+          <td mat-cell *matCellDef="let element"> {{element.ddd}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Número </th>
+          <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tipoDescricao">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+          <td mat-cell *matCellDef="let element"> {{element.tipoDescrica}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="onClickEditar(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onClickDelete(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </section>
+</mat-card>

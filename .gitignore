@@ -3,3 +3,22 @@
 ################################################################################
 
 /.vs
+/src/backend/Pacientes/.vs/Pacientes
+/src/backend/Pacientes/Pacientes.Application/bin
+/src/backend/Pacientes/Pacientes.Application/obj
+/src/backend/Pacientes/Pacientes.Domain/bin
+/src/backend/Pacientes/Pacientes.Domain/obj
+/src/backend/Pacientes/Pacientes.Domain.Shared/bin
+/src/backend/Pacientes/Pacientes.Domain.Shared/obj
+/src/backend/Pacientes/Pacientes.Infra.CrossCutting.Ioc/bin
+/src/backend/Pacientes/Pacientes.Infra.CrossCutting.Ioc/obj
+/src/backend/Pacientes/Pacientes.Infra.Data.Context/bin
+/src/backend/Pacientes/Pacientes.Infra.Data.Context/obj
+/src/backend/Pacientes/Pacientes.Infra.Data.PersistencyRepository/bin
+/src/backend/Pacientes/Pacientes.Infra.Data.PersistencyRepository/obj
+/src/backend/Pacientes/Pacientes.Infra.Data.ReadRepository/bin
+/src/backend/Pacientes/Pacientes.Infra.Data.ReadRepository/obj
+/src/backend/Pacientes/Pacientes.WebApi/bin
+/src/backend/Pacientes/Pacientes.WebApi/obj
+/src/backend/Pacientes/Pacientes.WebApi/Properties/PublishProfiles
+/src/frontend/PacientesWeb/.vscode
